@@ -2,6 +2,10 @@
  * YetWater - Blog Posts Visual Shortcode
  * Uso: [yetwater_blog cantidad="6" categoria=""]
  * Instalar en: Code Snippets > Add New > Run Snippet Everywhere
+SHORTCODE de Uso: 
+[yetwater_blog]
+[yetwater_blog cantidad="6"]
+[yetwater_blog cantidad="3" categoria="noticias"]
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
