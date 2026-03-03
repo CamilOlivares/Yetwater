@@ -1,0 +1,17 @@
+add_action('admin_menu', function() {
+    // Tomamos el usuario actual
+    $user = wp_get_current_user();
+
+    // Si NO es administrador, le escondemos los submenús sensibles de WooCommerce
+    if ( ! in_array( 'administrator', (array) $user->roles, true ) ) {
+
+        // Oculta "Ajustes" de WooCommerce
+        remove_submenu_page( 'woocommerce', 'wc-settings' );
+
+        // Oculta "Estado"
+        remove_submenu_page( 'woocommerce', 'wc-status' );
+
+        // Oculta "Extensiones" (si aparece)
+        remove_submenu_page( 'woocommerce', 'wc-addons' );
+    }
+}, 999);
