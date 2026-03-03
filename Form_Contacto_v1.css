@@ -1,0 +1,85 @@
+/* Fondo animado de la sección */
+selector {
+    background-image: linear-gradient(-45deg, #ffffff, #e6f7f8, #b2dfe2, #ffffff) !important;
+    background-size: 400% 400% !important;
+    animation: ywContactBg 18s ease infinite !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 30px !important;
+}
+
+@keyframes ywContactBg {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Luz cenital */
+selector::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0; left: 0 !important;
+    width: 100%; height: 60% !important;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.75) 0%, transparent 65%) !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+}
+
+/* Burbujas decorativas */
+selector::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background:
+        radial-gradient(circle 60px at 5% 80%, rgba(93,163,168,0.10) 50%, transparent 52%),
+        radial-gradient(circle 40px at 95% 20%, rgba(93,163,168,0.08) 50%, transparent 52%),
+        radial-gradient(circle 80px at 80% 85%, rgba(93,163,168,0.08) 50%, transparent 52%),
+        radial-gradient(circle 30px at 20% 15%, rgba(93,163,168,0.07) 50%, transparent 52%) !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+    animation: ywBubblesDrift 14s ease-in-out infinite alternate !important;
+}
+
+@keyframes ywBubblesDrift {
+    0%   { transform: translateY(0px); }
+    100% { transform: translateY(-16px); }
+}
+
+/* Todo el contenido encima del fondo */
+selector .elementor-container {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Título */
+selector h1, selector h2 {
+    font-family: 'Assistant', sans-serif !important;
+    font-weight: 900 !important;
+    color: #1a2a3a !important;
+    line-height: 1.1 !important;
+}
+
+/* Subtítulo */
+selector p {
+    font-family: 'Assistant', sans-serif !important;
+    color: #3e4e5e !important;
+    font-size: 16px !important;
+}
+
+/* Imagen circular con borde teal pulsante */
+selector .elementor-widget-image img {
+    border-radius: 50% !important;
+    border: 4px solid #5da3a8 !important;
+    box-shadow:
+        0 0 0 8px rgba(93,163,168,0.12),
+        0 20px 40px rgba(93,163,168,0.20) !important;
+    animation: ywImgPulse 4s ease-in-out infinite !important;
+    transition: transform 0.4s ease !important;
+}
+selector .elementor-widget-image img:hover {
+    transform: scale(1.03) !important;
+}
+@keyframes ywImgPulse {
+    0%, 100% { box-shadow: 0 0 0 8px rgba(93,163,168,0.12), 0 20px 40px rgba(93,163,168,0.20); }
+    50%       { box-shadow: 0 0 0 16px rgba(93,163,168,0.06), 0 20px 40px rgba(93,163,168,0.30); }
+}
