@@ -1,0 +1,183 @@
+<style>
+/* --- ECOSISTEMA YET! WATER: VERSIÓN PREMIUM --- */
+
+/* 1. CONTENEDOR CON FONDO DINÁMICO */
+.yet-mission-section {
+    background-image: linear-gradient(-45deg, #ffffff, #e6f7f8, #5da3a8, #ffffff) !important;
+    background-size: 400% 400% !important;
+    -webkit-animation: animacionAguaMission 15s ease infinite !important;
+    animation: animacionAguaMission 15s ease infinite !important;
+    padding: 100px 20px;
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(93, 163, 168, 0.12);
+}
+
+@keyframes animacionAguaMission {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    max-width: 1250px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+/* 2. TARJETA DE TEXTO GLASS */
+.mission-text-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 35px;
+    padding: 50px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.mission-title {
+    font-family: 'Assistant', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: #1a2a3a;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.mission-title span { color: #5da3a8; }
+
+.mission-body {
+    font-family: 'Assistant', sans-serif;
+    font-size: 19px;
+    line-height: 1.8;
+    color: #3e4e5e;
+}
+
+/* 3. COLUMNA DE LA GOTA Y ETIQUETAS MEJORADAS */
+.mission-visuals-col {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 550px;
+}
+
+/* CÁPSULAS DE PUREZA ESTILO PREMIUM */
+.purity-badge {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 14px 22px;
+    border-radius: 18px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #2c3e50;
+    box-shadow: 0 10px 30px rgba(93, 163, 168, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.4s ease;
+    animation: flotarEtiqueta 6s ease-in-out infinite;
+}
+
+/* Efecto hover en las etiquetas */
+.purity-badge:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.05) translateY(-5px) !important;
+    border-color: #5da3a8;
+}
+
+@keyframes flotarEtiqueta {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(5px, -15px); }
+}
+
+/* POSICIONES ALEJADAS PARA NO TAPAR LA GOTA */
+.b-1 { top: 5%; left: -10%; animation-delay: 0s; }
+.b-2 { top: 10%; right: -1%; animation-delay: 1.5s; }
+.b-3 { bottom: 15%; left: -5%; animation-delay: 3s; }
+.b-4 { bottom: 5%; right: -5%; animation-delay: 4.5s; }
+
+/* 4. GOTA Y ONDAS */
+.contenedor-gota-master {
+    position: relative;
+    width: 320px; /* Un poco más grande para que luzca */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gota-img {
+    width: 100%;
+    height: auto;
+    z-index: 5;
+    filter: drop-shadow(0 25px 35px rgba(93, 163, 168, 0.4));
+    animation: levitarGota 4.5s ease-in-out infinite;
+}
+
+@keyframes levitarGota {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+.onda-mision {
+    position: absolute;
+    bottom: 20px;
+    width: 120px;
+    height: 50px;
+    background: rgba(93, 163, 168, 0.25);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: expansionOnda 4.5s infinite;
+}
+
+.onda-2 { animation-delay: 2.25s; }
+
+@keyframes expansionOnda {
+    0% { transform: scale(0.6); opacity: 0.7; }
+    100% { transform: scale(3.5); opacity: 0; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .mission-grid { grid-template-columns: 1fr; gap: 40px; }
+    .b-1, .b-2, .b-3, .b-4 { position: relative; top: auto; left: auto; right: auto; bottom: auto; margin: 10px; }
+    .mission-visuals-col { height: auto; flex-wrap: wrap; padding-top: 40px; }
+}
+</style>
+
+<div class="yet-mission-section">
+    <div class="mission-grid">
+        
+        <div class="mission-text-card">
+            <h2 class="mission-title">Más que agua, es <br><span>Innovación Pura</span>.</h2>
+            <div class="mission-body">
+                <p>En un mundo donde la escasez hídrica es un desafío crítico, capturamos la humedad del aire con tecnología avanzada para ofrecerte agua potable de la más alta calidad.</p>
+                <p><strong>Pureza Inigualable:</strong> Sin agotar fuentes naturales ni tocar el suelo, preservamos los ecosistemas para el futuro mientras hidratamos tu vida.</p>
+            </div>
+        </div>
+
+        <div class="mission-visuals-col">
+            
+            <div class="purity-badge b-1">💧 Libre de Microplásticos</div>
+            <div class="purity-badge b-2">💎 Sin Metales Pesados</div>
+            <div class="purity-badge b-3">🌿 100% Sostenible</div>
+            <div class="purity-badge b-4">🛡️ 0% Químicos Nocivos</div>
+
+            <div class="contenedor-gota-master">
+                <div class="onda-mision"></div>
+                <div class="onda-mision onda-2"></div>
+                <img src="https://yetwater.cl/wp-content/uploads/2026/02/Logo-Gota.webp" alt="Gota Yet Water" class="gota-img">
+            </div>
+
+        </div>
+    </div>
+</div>
