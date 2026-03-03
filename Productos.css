@@ -1,0 +1,295 @@
+/* YETWATER - WooCommerce Products PREMIUM v6 - SKT Theme Fix
+   Pegar en: Widget Elementor > Avanzado > CSS Personalizado */
+
+/* 1. FONDO ANIMADO */
+selector {
+    background-image: linear-gradient(-45deg, #ffffff, #e6f7f8, #5da3a8, #ffffff);
+    background-size: 400% 400%;
+    animation: ywBg 18s ease infinite;
+    border-radius: 40px;
+    padding: 50px 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(93,163,168,0.12);
+}
+@keyframes ywBg {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+selector::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 65%;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.80) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+}
+selector::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle 55px at 8% 80%, rgba(93,163,168,0.10) 50%, transparent 52%),
+        radial-gradient(circle 35px at 18% 20%, rgba(93,163,168,0.08) 50%, transparent 52%),
+        radial-gradient(circle 70px at 85% 75%, rgba(93,163,168,0.10) 50%, transparent 52%),
+        radial-gradient(circle 40px at 92% 15%, rgba(93,163,168,0.07) 50%, transparent 52%);
+    pointer-events: none;
+    z-index: 0;
+    animation: ywBubblesDrift 12s ease-in-out infinite alternate;
+}
+@keyframes ywBubblesDrift {
+    0%   { transform: translateY(0px); }
+    100% { transform: translateY(-18px); }
+}
+
+/* 2. GRID */
+selector ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 24px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    position: relative;
+    z-index: 2;
+    align-items: start !important;
+}
+selector ul.products::before,
+selector ul.products::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* 3. TARJETA */
+selector ul.products li.product {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    clear: none !important;
+    box-sizing: border-box !important;
+    background: rgba(255,255,255,0.60) !important;
+    backdrop-filter: blur(22px) !important;
+    -webkit-backdrop-filter: blur(22px) !important;
+    border: 1px solid rgba(255,255,255,0.90) !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    display: block !important;
+    box-shadow: 0 8px 28px rgba(93,163,168,0.14), inset 0 1px 0 rgba(255,255,255,1) !important;
+    transition: transform 0.5s cubic-bezier(0.23,1,0.32,1), box-shadow 0.5s ease !important;
+    animation: ywFloat 6s ease-in-out infinite !important;
+    z-index: 1;
+}
+
+/* MATAR overlay oscuro del tema SKT */
+selector ul.products li.product::before,
+selector ul.products li.product::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    opacity: 0 !important;
+}
+
+/* Linea de agua con pseudoelemento en el wrapper */
+selector ul.products li.product:hover {
+    animation-play-state: paused !important;
+    transform: translateY(-18px) scale(1.025) !important;
+    box-shadow: 0 36px 68px rgba(93,163,168,0.38), 0 0 0 1.5px rgba(93,163,168,0.22), inset 0 1px 0 rgba(255,255,255,1) !important;
+    z-index: 20 !important;
+    outline: 3px solid rgba(93,163,168,0.25) !important;
+    outline-offset: 0px !important;
+}
+
+@keyframes ywFloat {
+    0%, 100% { transform: translateY(0px);    box-shadow: 0 8px 28px rgba(93,163,168,0.14), inset 0 1px 0 rgba(255,255,255,1); }
+    50%       { transform: translateY(-11px);  box-shadow: 0 24px 50px rgba(93,163,168,0.28), inset 0 1px 0 rgba(255,255,255,1); }
+}
+selector ul.products li.product:nth-child(1) { animation-delay: 0.0s !important; }
+selector ul.products li.product:nth-child(2) { animation-delay: 0.8s !important; }
+selector ul.products li.product:nth-child(3) { animation-delay: 1.6s !important; }
+selector ul.products li.product:nth-child(4) { animation-delay: 2.4s !important; }
+selector ul.products li.product:nth-child(5) { animation-delay: 0.4s !important; }
+selector ul.products li.product:nth-child(6) { animation-delay: 1.2s !important; }
+
+/* 4. IMAGEN — div skt-product-img */
+selector ul.products li.product .skt-product-img {
+    display: block !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    border-radius: 24px 24px 0 0 !important;
+    background: rgba(255,255,255,0.30) !important;
+    position: relative !important;
+}
+
+/* Matar overlay SKT sobre imagen */
+selector ul.products li.product .skt-product-img::before,
+selector ul.products li.product .skt-product-img::after,
+selector ul.products li.product a.woocommerce-LoopProduct-link::before,
+selector ul.products li.product a.woocommerce-LoopProduct-link::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    opacity: 0 !important;
+}
+
+selector ul.products li.product .skt-product-img img,
+selector ul.products li.product img {
+    display: block !important;
+    width: 100% !important;
+    height: 185px !important;
+    object-fit: contain !important;
+    padding: 20px 16px 14px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    opacity: 1 !important;
+    filter: drop-shadow(0 6px 14px rgba(93,163,168,0.22)) !important;
+    transition: transform 0.55s cubic-bezier(0.23,1,0.32,1), filter 0.4s ease !important;
+    position: relative !important;
+    z-index: 2 !important;
+    background: none !important;
+}
+selector ul.products li.product:hover .skt-product-img img,
+selector ul.products li.product:hover img {
+    transform: scale(1.07) translateY(-5px) !important;
+    filter: drop-shadow(0 20px 32px rgba(93,163,168,0.48)) !important;
+    opacity: 1 !important;
+}
+
+/* 5. LINK WRAPPER — sin efectos */
+selector ul.products li.product a.woocommerce-LoopProduct-link {
+    display: block !important;
+    text-decoration: none !important;
+    background: none !important;
+}
+
+/* 6. TITULO */
+selector ul.products li.product h2.woocommerce-loop-product__title {
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    color: #1a2a3a !important;
+    padding: 12px 16px 4px !important;
+    margin: 0 !important;
+    line-height: 1.3 !important;
+    display: block !important;
+    transition: color 0.3s ease !important;
+    text-align: center !important;
+}
+selector ul.products li.product:hover h2.woocommerce-loop-product__title {
+    color: #5da3a8 !important;
+}
+
+/* 7. PRECIO */
+selector ul.products li.product .price {
+    font-size: 17px !important;
+    font-weight: 900 !important;
+    color: #5da3a8 !important;
+    padding: 2px 16px 12px !important;
+    margin: 0 !important;
+    display: block !important;
+    text-align: center !important;
+}
+selector ul.products li.product .price del {
+    color: #a8c4c8 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    margin-right: 4px !important;
+}
+selector ul.products li.product .price ins {
+    text-decoration: none !important;
+    color: #5da3a8 !important;
+}
+
+/* 8. BOTON — <a> directo en el <li>, fuera del link de imagen */
+selector ul.products li.product > a.button,
+selector ul.products li.product > a.add_to_cart_button,
+selector ul.products li.product > a.ajax_add_to_cart {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 14px 16px !important;
+    box-sizing: border-box !important;
+    background: linear-gradient(45deg, #5da3a8, #76c5ca) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 0 0 24px 24px !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    transition: background 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+    z-index: 4 !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    top: auto !important;
+}
+selector ul.products li.product > a.button:hover,
+selector ul.products li.product > a.add_to_cart_button:hover,
+selector ul.products li.product > a.ajax_add_to_cart:hover {
+    background: linear-gradient(45deg, #4e9298, #65b5ba) !important;
+    color: #ffffff !important;
+    transform: none !important;
+    box-shadow: inset 0 3px 10px rgba(0,0,0,0.10) !important;
+}
+
+/* Shimmer boton */
+selector ul.products li.product > a.button::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0; left: -80% !important;
+    width: 55%; height: 100% !important;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.38), transparent) !important;
+    transform: skewX(-20deg) !important;
+    pointer-events: none !important;
+    transition: left 0.55s ease !important;
+}
+selector ul.products li.product > a.button:hover::before {
+    left: 140% !important;
+}
+
+/* 9. BADGE OFERTA */
+selector ul.products li.product .onsale {
+    position: absolute !important;
+    top: 12px !important; left: 12px !important;
+    right: auto !important; bottom: auto !important;
+    background: linear-gradient(135deg, #5da3a8, #76c5ca) !important;
+    color: #ffffff !important;
+    font-size: 10px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.2px !important;
+    padding: 5px 13px !important;
+    border-radius: 20px !important;
+    width: auto !important; height: auto !important;
+    min-width: unset !important; min-height: unset !important;
+    line-height: 1.4 !important;
+    box-shadow: 0 4px 14px rgba(93,163,168,0.45) !important;
+    z-index: 8 !important;
+    display: inline-block !important;
+    animation: ywBadgePulse 2.5s ease-in-out infinite !important;
+}
+@keyframes ywBadgePulse {
+    0%, 100% { box-shadow: 0 4px 14px rgba(93,163,168,0.45); }
+    50%       { box-shadow: 0 4px 24px rgba(93,163,168,0.75); }
+}
+
+/* 10. RESPONSIVE */
+@media (max-width: 1200px) {
+    selector ul.products { grid-template-columns: repeat(3, 1fr) !important; }
+}
+@media (max-width: 900px) {
+    selector ul.products { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 550px) {
+    selector ul.products { grid-template-columns: 1fr !important; }
+    selector { padding: 30px 16px 40px !important; border-radius: 24px !important; }
+}
