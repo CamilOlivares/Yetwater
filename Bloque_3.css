@@ -1,0 +1,313 @@
+<style>
+/* --- SECCIÓN GENERADOR: "FÁBRICA DE AGUA" FUTURISTA --- */
+
+/* 1. CONTENEDOR PRINCIPAL CON FONDO DINÁMICO */
+.yet-generator-section {
+    /* El mismo fondo de flujo de agua para continuidad */
+    background-image: linear-gradient(-45deg, #ffffff, #e6f7f8, #5da3a8, #ffffff);
+    background-size: 400% 400%;
+    animation: animacionAguaGen 15s ease infinite;
+    
+    padding: 80px 30px;
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(93, 163, 168, 0.15);
+    /* Un toque de luz desde arriba */
+    background-blend-mode: overlay;
+}
+.yet-generator-section::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%);
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+@keyframes animacionAguaGen {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.generator-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr; /* Más espacio para la máquina */
+    gap: 60px;
+    max-width: 1300px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+/* 2. COLUMNA DE TEXTO (Glassmorphism Pro) */
+.gen-text-card {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 35px;
+    padding: 50px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+    position: relative;
+    z-index: 10;
+}
+
+.gen-subtitle {
+    font-family: 'Assistant', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: #5da3a8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.gen-title {
+    font-family: 'Assistant', sans-serif;
+    font-size: 46px;
+    font-weight: 900;
+    color: #1a2a3a;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+.gen-title span { color: #5da3a8; }
+
+.gen-body {
+    font-family: 'Assistant', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #3e4e5e;
+    margin-bottom: 40px;
+}
+.gen-body strong { color: #2c3e50; }
+
+/* Botón Pro con efecto de brillo */
+.gen-btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #5da3a8, #76c5ca);
+    color: white;
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 16px;
+    box-shadow: 0 10px 25px rgba(93, 163, 168, 0.4);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+.gen-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 20%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 80%);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+.gen-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(93, 163, 168, 0.6);
+}
+.gen-btn:hover::after {
+    left: 100%;
+    opacity: 1;
+    transition: 0.6s;
+}
+
+/* 3. COLUMNA VISUAL: LA MÁQUINA EN ACCIÓN */
+.gen-visual-col {
+    position: relative;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Base en el "agua" */
+    perspective: 1000px;
+}
+
+/* Plataforma de Agua y Reflejos */
+.water-platform {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background: radial-gradient(ellipse at center, rgba(93, 163, 168, 0.3) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    transform: rotateX(60deg);
+    filter: blur(20px);
+    z-index: 1;
+    animation: pulsePlatform 4s ease-in-out infinite;
+}
+@keyframes pulsePlatform {
+    0%, 100% { opacity: 0.6; transform: rotateX(60deg) scale(1); }
+    50% { opacity: 0.8; transform: rotateX(60deg) scale(1.05); }
+}
+
+/* EL GENERADOR LEVITANDO */
+.generator-container {
+    position: relative;
+    z-index: 5;
+    animation: levitarGen 5s ease-in-out infinite;
+}
+@keyframes levitarGen {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.gen-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    /* Sombra potente y resplandor */
+    filter: drop-shadow(0 30px 40px rgba(93, 163, 168, 0.5));
+    position: relative;
+    z-index: 6;
+}
+
+/* EFECTOS DE ENERGÍA Y AGUA */
+
+/* Campo de Energía (Aura alrededor de la máquina) */
+.energy-field {
+    position: absolute;
+    top: 5%; left: 5%;
+    width: 90%; height: 90%;
+    border-radius: 20px;
+    background: transparent;
+    box-shadow: 0 0 60px rgba(93, 163, 168, 0.4), inset 0 0 40px rgba(93, 163, 168, 0.2);
+    opacity: 0.7;
+    z-index: 4;
+    animation: pulseEnergy 3s ease-in-out infinite;
+}
+@keyframes pulseEnergy {
+    0%, 100% { box-shadow: 0 0 60px rgba(93, 163, 168, 0.4), inset 0 0 40px rgba(93, 163, 168, 0.2); opacity: 0.7; }
+    50% { box-shadow: 0 0 80px rgba(93, 163, 168, 0.6), inset 0 0 60px rgba(93, 163, 168, 0.4); opacity: 0.9; }
+}
+
+/* Partículas de "Aire" siendo absorbidas */
+.air-particles {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 7;
+    pointer-events: none;
+}
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(93, 163, 168, 0.8);
+    animation: absorbParticle 3s linear infinite;
+}
+@keyframes absorbParticle {
+    0% { opacity: 0; transform: translate(var(--start-x), var(--start-y)) scale(0.5); }
+    20% { opacity: 1; }
+    100% { opacity: 0; transform: translate(var(--end-x), var(--end-y)) scale(0.2); }
+}
+/* Generamos algunas partículas en distintas posiciones */
+.p1 { width: 8px; height: 8px; --start-x: -100px; --start-y: -50px; --end-x: 150px; --end-y: 200px; animation-delay: 0s; }
+.p2 { width: 6px; height: 6px; --start-x: 300px; --start-y: -80px; --end-x: 100px; --end-y: 200px; animation-delay: 1s; }
+.p3 { width: 10px; height: 10px; --start-x: -150px; --start-y: 100px; --end-x: 180px; --end-y: 200px; animation-delay: 2s; }
+.p4 { width: 7px; height: 7px; --start-x: 350px; --start-y: 50px; --end-x: 120px; --end-y: 200px; animation-delay: 0.5s; }
+
+/* Cascada de Agua (Reemplaza el splash estático) */
+.water-cascade {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 200px;
+    z-index: 8;
+    pointer-events: none;
+    /* Usamos un gradiente animado para simular agua cayendo */
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(164, 217, 221, 0.6) 20%, rgba(93, 163, 168, 0.8) 100%);
+    mask-image: linear-gradient(to bottom, transparent, black);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black);
+    animation: cascadeFlow 1s linear infinite;
+    opacity: 0.9;
+    border-radius: 0 0 20px 20px;
+}
+@keyframes cascadeFlow {
+    0% { background-position: 0 -200px; }
+    100% { background-position: 0 0; }
+}
+
+/* Salpicaduras Dinámicas en la Base */
+.splash-base {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: 80px;
+    z-index: 9;
+}
+.splash-ripple {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 100%;
+    height: 100%;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: rippleEffect 2s linear infinite;
+}
+.sr2 { animation-delay: 0.6s; border-color: rgba(93, 163, 168, 0.7); }
+.sr3 { animation-delay: 1.2s; border-color: rgba(164, 217, 221, 0.6); }
+
+@keyframes rippleEffect {
+    0% { transform: translateX(-50%) scale(0); opacity: 1; border-width: 5px; }
+    100% { transform: translateX(-50%) scale(1.5); opacity: 0; border-width: 1px; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .generator-grid { grid-template-columns: 1fr; gap: 50px; }
+    .gen-visual-col { height: 500px; }
+    .gen-img { max-width: 400px; }
+    .water-cascade, .splash-base { width: 250px; }
+}
+</style>
+
+<div class="yet-generator-section">
+    <div class="generator-grid">
+        
+        <div class="gen-text-card">
+            <span class="gen-subtitle">Tecnología del Futuro, Hoy</span>
+            <h2 class="gen-title">Generadores de <br><span>Agua Atmosférica</span></h2>
+            <div class="gen-body">
+                <p>Convierte el aire en <strong>agua pura, fresca y mineralizada</strong> con nuestras soluciones de vanguardia. Diseñados para hogares, empresas e industrias que buscan <strong>autonomía hídrica total</strong>, sostenibilidad y la máxima eficiencia.</p>
+                <p>Olvídate de las botellas y la red pública. Crea tu propia fuente de agua inagotable, directamente donde la necesitas.</p>
+            </div>
+            <a href="#" class="gen-btn">DESCUBRIR MODELOS</a>
+        </div>
+
+        <div class="gen-visual-col">
+            
+            <div class="water-platform"></div>
+            
+            <div class="generator-container">
+                <div class="energy-field"></div>
+                <div class="air-particles">
+                    <div class="particle p1"></div>
+                    <div class="particle p2"></div>
+                    <div class="particle p3"></div>
+                    <div class="particle p4"></div>
+                </div>
+                <img src="https://yetwater.cl/wp-content/uploads/2026/02/generador-agua2.webp" alt="Generador de Agua Atmosférica Yeti Water" class="gen-img">
+            </div>
+
+            <div class="water-cascade"></div>
+            <div class="splash-base">
+                <div class="splash-ripple sr1"></div>
+                <div class="splash-ripple sr2"></div>
+                <div class="splash-ripple sr3"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
