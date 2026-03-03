@@ -1,0 +1,224 @@
+<style>
+/* --- SECCIÓN COMPROMISO: EL PLANETA VIVO --- */
+
+.yet-world-section {
+    background: radial-gradient(circle at 0% 0%, #ffffff 0%, #f0f9fa 50%, #e6f7f8 100%);
+    padding: 100px 30px;
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Assistant', sans-serif;
+}
+
+/* Fondo Dinámico: Corrientes de Aire/Agua */
+.yet-world-bg-flow {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0.3;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.world-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- BLOQUE VISUAL: EL PLANETA FLOTANTE --- */
+.world-visual-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+/* El Planeta */
+.planet-wrapper {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    filter: drop-shadow(0 20px 50px rgba(93, 163, 168, 0.3));
+    animation: floatPlanet 6s ease-in-out infinite;
+    cursor: pointer;
+}
+
+.planet-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    z-index: 5;
+    position: relative;
+}
+
+/* Efecto Hover: El planeta "brilla" y escala */
+.planet-wrapper:hover {
+    transform: scale(1.05) translateY(-10px);
+    filter: drop-shadow(0 30px 60px rgba(93, 163, 168, 0.5));
+}
+
+@keyframes floatPlanet {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-25px) rotate(2deg); }
+}
+
+/* Efecto de Agua Goteando (Dinámico) */
+.water-drop {
+    position: absolute;
+    background: rgba(93, 163, 168, 0.6);
+    width: 8px;
+    height: 12px;
+    border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+    bottom: 20%;
+    opacity: 0;
+    z-index: 4;
+}
+
+.planet-wrapper:hover .water-drop {
+    animation: drip 2s infinite;
+}
+
+.drop1 { left: 30%; animation-delay: 0s !important; }
+.drop2 { left: 50%; animation-delay: 0.7s !important; }
+.drop3 { left: 70%; animation-delay: 1.4s !important; }
+
+@keyframes drip {
+    0% { transform: translateY(0) scaleX(1); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(150px) scaleX(0.5); opacity: 0; }
+}
+
+/* Etiqueta Flotante "Compromiso" */
+.commitment-badge {
+    position: absolute;
+    top: 20%;
+    right: -10%;
+    background: linear-gradient(135deg, #428286, #5da3a8);
+    color: white;
+    padding: 25px;
+    border-radius: 20px;
+    width: 220px;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 1.2;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    animation: floatBadge 5s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-10px, 15px); }
+}
+
+/* --- BLOQUE TEXTO --- */
+.world-content {
+    padding-left: 40px;
+}
+
+.world-title {
+    font-size: 56px;
+    font-weight: 900;
+    color: #1a2a3a;
+    margin-bottom: 25px;
+    line-height: 1;
+}
+
+.world-description {
+    font-size: 18px;
+    color: #4a5a6a;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+/* Lista de Beneficios con Micro-interacción */
+.world-list {
+    list-style: none;
+    padding: 0;
+}
+
+.world-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+    font-weight: 800;
+    color: #2c3e50;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease;
+}
+
+.world-list li:hover {
+    transform: translateX(10px);
+    color: #5da3a8;
+}
+
+.world-list li i {
+    color: #5da3a8;
+    margin-right: 15px;
+    font-size: 22px;
+    background: #eef9fa;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .world-grid { grid-template-columns: 1fr; text-align: center; }
+    .world-content { padding-left: 0; order: 1; }
+    .world-visual-container { order: 2; height: 450px; }
+    .planet-wrapper { width: 300px; height: 300px; }
+    .commitment-badge { right: 0; top: 0; width: 160px; font-size: 16px; }
+    .world-list li { justify-content: center; }
+}
+</style>
+
+<section class="yet-world-section">
+    <div class="yet-world-bg-flow">
+        <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="#5da3a8" fill-opacity="0.05" d="M0,192L48,197.3C96,203,192,213,288,192C384,171,480,117,576,112C672,107,768,149,864,181.3C960,213,1056,235,1152,218.7C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+    </div>
+
+    <div class="world-grid">
+        <div class="world-visual-container">
+            <div class="planet-wrapper">
+                <img src="https://yetwater.cl/wp-content/uploads/2023/01/glob-img2.png" alt="Mundo Sostenible Yeti Water" class="planet-img">
+                
+                <div class="water-drop drop1"></div>
+                <div class="water-drop drop2"></div>
+                <div class="water-drop drop3"></div>
+                
+                <div class="commitment-badge">
+                    COMPROMISO CON EL CAMBIO CLIMÁTICO
+                </div>
+            </div>
+        </div>
+
+        <div class="world-content">
+            <h2 class="world-title">Amigable con el <br>Mundo</h2>
+            <p class="world-description">
+                Contribuimos activamente a la lucha contra el cambio climático. Nuestras prácticas sostenibles aseguran que cada gota de agua que generamos no solo sea pura y fresca, sino también un respiro para el planeta. <strong>Producimos agua sin explotar acuíferos ni generar residuos plásticos.</strong>
+            </p>
+            
+            <ul class="world-list">
+                <li><i>✓</i> Sostenibilidad Ambiental</li>
+                <li><i>✓</i> Innovación Continua</li>
+                <li><i>✓</i> Pureza y Calidad Superior</li>
+            </ul>
+        </div>
+    </div>
+</section>
