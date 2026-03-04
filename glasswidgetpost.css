@@ -1,0 +1,47 @@
+/* Contenedor de los widgets (Buscar y Post Recientes) */
+.widget {
+    background: rgba(255, 255, 255, 0.2) !important; /* Blanco semi-transparente */
+    backdrop-filter: blur(12px); /* El efecto de desenfoque */
+    -webkit-backdrop-filter: blur(12px); /* Compatibilidad con Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil para definir el cristal */
+    border-radius: 20px; /* Esquinas redondeadas */
+    padding: 25px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05); /* Sombra muy suave */
+    margin-bottom: 25px;
+}
+
+/* Mejorar el campo de búsqueda */
+.widget input[type="text"], 
+.widget input[type="search"] {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Mejorar el botón de búsqueda */
+.widget button, 
+.widget input[type="submit"] {
+    background-color: #7ab8b3; /* Color similar al de tu diseño */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.widget button:hover {
+    background-color: #5e928e;
+}
+
+/* Estilo para los títulos de los widgets */
+.widget-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-bottom: 10px;
+}
