@@ -1,83 +1,36 @@
 /* ============================================================
-   ESTILO GLASSMORPHISM UNIFICADO PARA NOTICIAS Y BARRA LATERAL
+   ESTILO GLASSMORPHISM - SOLO ESTÉTICA (YET! WATER)
    ============================================================ */
 
-/* 1. DISEÑO DE LAS TARJETAS DE NOTICIAS */
-.post, .entry-card, .article-inner {
-    background: rgba(255, 255, 255, 0.3) !important;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 25px;
-    padding: 25px;
-    margin-bottom: 35px;
-    display: flex;
-    gap: 30px;
-    transition: all 0.4s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+/* 1. Aplicar efecto vidrio a los contenedores sin romper estructura */
+.post, .type-post, .entry-card, .widget, #secondary .widget {
+    background: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.7) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.3s ease !important;
+    
+    /* Pequeño margen interno para que respire, si tu tema lo permite */
+    padding: 25px !important; 
+    margin-bottom: 35px !important;
 }
 
-.post:hover {
-    transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.5) !important;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-}
-
-/* Ajuste de imágenes en noticias */
-.post img, .entry-card img {
-    border-radius: 20px;
-    object-fit: cover;
-    width: 280px;
-    height: 180px;
-}
-
-/* 2. DISEÑO DE LA BARRA LATERAL (WIDGETS) */
-.widget, #secondary .widget {
-    background: rgba(255, 255, 255, 0.25) !important;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 22px;
-    padding: 25px;
-    margin-bottom: 30px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
-}
-
-/* 3. ELEMENTOS DE BÚSQUEDA Y BOTONES */
-.widget input[type="text"], 
-.widget input[type="search"] {
+/* 2. Efecto flotante sutil al pasar el mouse */
+.post:hover, .type-post:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1) !important;
     background: rgba(255, 255, 255, 0.6) !important;
-    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+}
+
+/* 3. Redondear bordes de las imágenes (sin forzar tamaños) */
+.post img, .entry-card img, .type-post img {
     border-radius: 12px !important;
-    padding: 12px 15px !important;
-    width: 100% !important;
+    /* Quitamos el object-fit y anchos fijos para que tu tema controle el tamaño */
 }
 
-.widget button, 
-.widget input[type="submit"],
-.read-more, .more-link {
-    background: #7ab8b3 !important; /* Color de marca turquesa */
-    color: white !important;
-    border-radius: 50px !important;
-    padding: 10px 25px !important;
-    font-weight: 600 !important;
-    border: none !important;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.widget button:hover, .read-more:hover {
-    background: #5e928e !important;
-}
-
-/* 4. MODO RESPONSIVO (MÓVILES) */
-@media (max-width: 768px) {
-    .post, .entry-card {
-        flex-direction: column;
-        padding: 15px;
-    }
-    .post img, .entry-card img {
-        width: 100%;
-        height: auto;
-    }
+/* 4. Toque turquesa a los títulos y widgets */
+.entry-title, .entry-title a, .widget-title {
+    color: #5e928e !important;
 }
